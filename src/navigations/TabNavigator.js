@@ -3,7 +3,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
 import TaskScreen from '../screens/TaskScreen';
-import SettingsStackNavigator from '../navigations/SettingsStackNavigator';
+import SettingsStackNavigator from './SettingsStackNavigator';
+import HomeStackNavigator from './HomeScreenStackNavigator';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCog, faHome, faTasks } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,11 +21,16 @@ const TabNavigator = () => {
         tabBarInactiveTintColor: '#8e8e93',
       }}
     >
-      <Tab.Screen name="Home" component={HomeScreen}  options={{tabBarIcon: ({ color, size }) => (
-      <FontAwesomeIcon icon={faHome} size={20} color={'black'} /> ), }} />
-      <Tab.Screen name="Task" component={TaskScreen} options={{tabBarIcon: ({ color, size }) => (
+
+
+      <Tab.Screen name="Home" component={HomeStackNavigator}  
+      options={{tabBarIcon: ({ color, size }) => (
+      <FontAwesomeIcon icon={faHome} size={20} color={'black'} /> ), headerTitle: 'My Movie' }} />
+      <Tab.Screen name="Task" component={TaskScreen} 
+      options={{tabBarIcon: ({ color, size }) => (
       <FontAwesomeIcon icon={faTasks} size={20} color={'black'} /> ), }} />
-      <Tab.Screen name="Settings" component={SettingsStackNavigator} options={{tabBarIcon: ({ color, size }) => (
+      <Tab.Screen name="Settings" component={SettingsStackNavigator} 
+      options={{tabBarIcon: ({ color, size }) => (
       <FontAwesomeIcon icon={faCog} size={20} color={'black'} /> ), }}/>
     </Tab.Navigator>
   );

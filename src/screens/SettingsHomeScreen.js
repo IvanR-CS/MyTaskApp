@@ -29,6 +29,8 @@ const renderItem = ({ item }) => (
 );
 
 return (
+
+  
   <View style={{ flex: 1 }}>
     <FlatList
       data={settingsOptions}
